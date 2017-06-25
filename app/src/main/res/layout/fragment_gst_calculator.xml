@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_gst_calculator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.screenbiz.gstapply2017.MainActivity">
+
+
+    <ScrollView
+        android:id="@+id/Add_new_gst_form_form"
+        android:layout_width="match_parent"
+        android:layout_marginTop="70dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/new_gst_calculator_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="1">
+
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="3sp"
+                    android:textSize="30sp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:layout_weight="0.1"
+                    />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <EditText
+                        android:id="@+id/gst_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Principal Amount"
+                        android:inputType="numberDecimal"
+                        android:maxLength="16"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:layout_weight="0.9" />
+
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="1">
+
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="3sp"
+                    android:textSize="30sp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:layout_weight="0.1"
+                    />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <EditText
+                        android:id="@+id/gst_Rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="GST Rate"
+                        android:inputType="numberDecimal"
+                        android:maxLength="2"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:layout_weight="0.9" />
+
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:weightSum="1">
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="5%"
+                        android:textSize="25dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="12%"
+                        android:textAlignment="center"
+                        android:textSize="25dp" />
+
+
+                    <RadioButton
+                        android:id="@+id/radioButton18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center_horizontal"
+                        android:text="18%"
+                        android:textSize="25dp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton28"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="28%"
+                        android:textAlignment="center"
+                        android:textSize="25dp" />
+
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="5dp"
+                android:weightSum="1">
+
+
+
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹"
+                    android:layout_marginTop="5sp"
+                    android:layout_marginLeft="1sp"
+                    android:layout_marginRight="3sp"
+                    android:textSize="30sp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:layout_weight="0.1"
+                    />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <EditText
+                        android:id="@+id/gst_net_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Net GST Amount"
+                        android:inputType="numberDecimal"
+                        android:maxLength="16"
+                        android:maxLines="1"
+                        android:textSize="25sp"
+                        android:singleLine="true"
+                        android:layout_weight="0.9" />
+
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+    </ScrollView>
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:layout_alignParentEnd="true"
+        android:weightSum="1"
+        android:baselineAligned="false"
+        >
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonStyleSmall"
+            android:text="ADD GST"
+            android:textColor="#4CAF50"
+            android:layout_weight="0.59"
+            android:id="@+id/button_gstadd" />
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/buttonStyleSmall"
+            android:text="REMOVE GST"
+            android:textColor="#F44336"
+            android:layout_weight="0.41"
+            android:id="@+id/button_gstremove" />
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

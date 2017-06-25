@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "598633375268",
+    "firebase_url": "https://gst-apply.firebaseio.com",
+    "project_id": "gst-apply",
+    "storage_bucket": "gst-apply.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598633375268:android:4017e5341562c9d9",
+        "android_client_info": {
+          "package_name": "in.screenbiz.gstapply2017"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598633375268-8prgtlc6u6n7jedfl2gsckcg55ekclvt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.screenbiz.gstapply2017",
+            "certificate_hash": "e28d3fc4d33c60af36f6e85cd1e1b53ce27b3d35"
+          }
+        },
+        {
+          "client_id": "598633375268-6n2lcjfr0nle1mo5dm39s777f8sklfmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxqOY8dkGUMWRbBgxoN3o4qpqwii6qk0U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598633375268-6n2lcjfr0nle1mo5dm39s777f8sklfmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

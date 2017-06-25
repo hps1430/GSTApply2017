@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_applyforgst"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Apply For GSTIN" />
+        <item
+            android:id="@+id/nav_whatisgst"
+            android:icon="@drawable/ic_menu_send"
+            android:title="What Is GST ??" />
+        <item
+            android:id="@+id/nav_whyregister"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Why To Register for GSTIN" />
+        <item
+            android:id="@+id/nav_registrationtips"
+            android:icon="@drawable/ic_menu_send"
+            android:title="GST Registration Tips" />
+        <item
+            android:id="@+id/nav_getprovisionalids"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Get Provisional ID" />
+
+        <item
+            android:id="@+id/nav_gstnews"
+            android:icon="@drawable/ic_menu_send"
+            android:title="GST News via Google" />
+        <item
+            android:id="@+id/gst_item_calculator"
+            android:icon="@drawable/ic_menu_send"
+            android:title="GST Calculator" />
+
+
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+
+            <!--<item-->
+            <!--android:id="@+id/nav_share"-->
+            <!--android:icon="@drawable/ic_menu_share"-->
+            <!--android:title="Share" />-->
+
+
+
+            <item
+                android:id="@+id/nav_contact"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Contact" />
+        </menu>
+    </item>
+
+</menu>
