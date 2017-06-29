@@ -273,9 +273,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="?android:attr/buttonStyleSmall"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textColor="#FFFFFF"
             android:text="ADD GST"
-            android:textColor="#4CAF50"
             android:layout_weight="0.59"
             android:id="@+id/button_gstadd" />
 
@@ -285,9 +285,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="?android:attr/buttonStyleSmall"
             android:text="REMOVE GST"
-            android:textColor="#F44336"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textColor="#FFFFFF"
             android:layout_weight="0.41"
             android:id="@+id/button_gstremove" />
 

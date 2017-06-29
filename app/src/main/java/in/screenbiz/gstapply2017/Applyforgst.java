@@ -1,19 +1,20 @@
 package in.screenbiz.gstapply2017;
 
 import android.app.Fragment;
-import android.os.Build;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -29,6 +30,8 @@ public class Applyforgst extends Fragment {
     View applyforgstview;
     private WebView mWebView;
     public int counter;
+    String websiteurl="https://www.gst.gov.in/"; //initialising the url
+    Button gstregister,gstlogin;
 
 
     @Nullable
@@ -42,9 +45,46 @@ public class Applyforgst extends Fragment {
         adview.loadAd(adrequest);
 
 
+        gstregister = (Button) applyforgstview.findViewById(R.id.button_gstregister);
+        gstregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                websiteurl = "https://reg.gst.gov.in/registration/";
+                HelloWebViewClient helloWebViewClient = new HelloWebViewClient();
+                helloWebViewClient.shouldOverrideUrlLoading(mWebView,websiteurl);
+
+            }
+        });
+
+
+        gstlogin = (Button) applyforgstview.findViewById(R.id.button_gstlogin);
+        gstlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                websiteurl ="https://services.gst.gov.in/services/login";
+                HelloWebViewClient helloWebViewClient = new HelloWebViewClient();
+                helloWebViewClient.shouldOverrideUrlLoading(mWebView,websiteurl);
+
+
+            }
+        });
+
+
+
+
+
+
         mWebView = (WebView) applyforgstview.findViewById(R.id.webView_applyforgst);
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        webSettings.setPluginState(WebSettings.PluginState.ON);
+
+
 
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
@@ -64,14 +104,13 @@ public class Applyforgst extends Fragment {
 
 
 
-            mWebView.loadUrl("https://www.gst.gov.in/");
+            mWebView.loadUrl(websiteurl);
             counter = 0;
             Toast.makeText(getActivity().getBaseContext(),"Please wait...",Toast.LENGTH_LONG).show();
             mWebView.setWebViewClient((new HelloWebViewClient()));
         }
         mWebView.setOnKeyListener(new View.OnKeyListener(){
 
-            @RequiresApi(api = Build.VERSION_CODES.M)
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((keyCode == KeyEvent.KEYCODE_BACK) && mWebView.canGoBack()) {
 
@@ -131,8 +170,14 @@ public class Applyforgst extends Fragment {
 
     }
 
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            handler.proceed(); // Ignore SSL certificate errors
+        }
+
 
 }
+
 
 
 

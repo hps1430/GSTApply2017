@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 /**
  * Created by harsh singh on 19-06-2017.
@@ -74,6 +75,7 @@ public class gstFragment extends Fragment{
 
 
 
+
             }
         });
 
@@ -100,6 +102,10 @@ public class gstFragment extends Fragment{
 
                 netgstamount.setText(netgstamount1.toString());
 
+
+                netgstamount.requestFocus();
+
+                Toast.makeText(getActivity().getBaseContext(),"NET GST Amount : "+netgstamount.getText().toString(),Toast.LENGTH_LONG).show();
 
 
             }
@@ -128,6 +134,12 @@ public class gstFragment extends Fragment{
 
 
                 netgstamount.setText(netgstamount1.toString());
+
+
+                netgstamount.requestFocus();
+
+
+                Toast.makeText(getActivity().getBaseContext(),"NET GST Amount : "+netgstamount.getText().toString(),Toast.LENGTH_LONG).show();
 
 
             }
