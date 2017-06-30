@@ -17,13 +17,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity
@@ -34,6 +37,10 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     int acceptterms=1;
 
+    public InterstitialAd mInterstitialAd;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +48,24 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-2990813587526663/3687215030");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());                    //setup for interstitial ads
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+        });
+
+
+
+
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
@@ -156,6 +181,11 @@ public class MainActivity extends AppCompatActivity
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            if (mInterstitialAd.isLoaded()) {
+                                mInterstitialAd.show();
+                            } else {
+                                Log.d("TAG", "The interstitial wasn't loaded yet.");
+                            }
                             finish();
                             System.exit(0);
                         }
@@ -166,6 +196,11 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
+
+
+
 
 
 
@@ -226,7 +261,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
 
-
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
 
 
@@ -249,7 +288,11 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.gst_item_calculator) {
 
-
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_viewer,new gstFragment()).commit();
 
@@ -264,6 +307,12 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_registrationtips) {
+
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
 
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_viewer,new gstRegitrationTips()).commit();
@@ -281,6 +330,12 @@ public class MainActivity extends AppCompatActivity
 
         }else if (id == R.id.nav_getprovisionalids) {
 
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
+
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_viewer,new GetProvisionalids()).commit();
 
@@ -288,7 +343,6 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_applyforgst) {
-
 
 
             getprovisionalidfirst_dialog();
@@ -332,6 +386,12 @@ public class MainActivity extends AppCompatActivity
                         "3. Read FAQs for more clearity.").setNegativeButton("Okay,Got It", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
 
                 dialogInterface.dismiss();
 
@@ -381,3 +441,4 @@ public class MainActivity extends AppCompatActivity
 
 
 }
+
