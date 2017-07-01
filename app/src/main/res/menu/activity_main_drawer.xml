@@ -3,10 +3,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_applyforgst"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Apply For GSTIN" />
-        <item
             android:id="@+id/nav_whatisgst"
             android:icon="@drawable/ic_menu_send"
             android:title="What Is GST ??" />
@@ -18,10 +14,18 @@
             android:id="@+id/nav_registrationtips"
             android:icon="@drawable/ic_menu_send"
             android:title="GST Registration Tips" />
+
+
         <item
             android:id="@+id/nav_getprovisionalids"
             android:icon="@drawable/ic_menu_send"
             android:title="Get Provisional ID" />
+
+        <item
+            android:id="@+id/nav_applyforgst"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Apply For GSTIN" />
+
 
         <item
             android:id="@+id/nav_gstnews"

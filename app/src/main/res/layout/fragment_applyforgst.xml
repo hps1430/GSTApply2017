@@ -9,8 +9,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:id="@+id/buttongstapplylayout"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:weightSum="1"
@@ -41,12 +48,34 @@
 
 
 
-
-
-
-
     </LinearLayout>
 
+
+
+        <Button
+            android:id="@+id/button_gstregisterquicklinks"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary2"
+            android:text="Register quick links"
+            android:textColor="#FFFFFF" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/button_Payments"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary2"
+            android:text="Payments"
+            android:textColor="#FFFFFF" />
+
+</LinearLayout>
+
+    </LinearLayout>
 
     <WebView
         android:layout_width="match_parent"
@@ -66,8 +95,7 @@
         ads:adUnitId="ca-app-pub-2990813587526663/2304553435"
 
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-    </com.google.android.gms.ads.AdView>
+        android:layout_centerHorizontal="true"></com.google.android.gms.ads.AdView>
 
 
 

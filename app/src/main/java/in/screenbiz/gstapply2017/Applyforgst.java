@@ -1,6 +1,9 @@
 package in.screenbiz.gstapply2017;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,7 +34,9 @@ public class Applyforgst extends Fragment {
     private WebView mWebView;
     public int counter;
     String websiteurl="https://www.gst.gov.in/"; //initialising the url
-    Button gstregister,gstlogin;
+
+
+    Button gstregister,gstlogin,gstquicklinks,gstpayments;
 
 
     @Nullable
@@ -45,15 +50,47 @@ public class Applyforgst extends Fragment {
         adview.loadAd(adrequest);
 
 
+
+
+
         gstregister = (Button) applyforgstview.findViewById(R.id.button_gstregister);
         gstregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                websiteurl = "https://reg.gst.gov.in/registration/";
-                HelloWebViewClient helloWebViewClient = new HelloWebViewClient();
-                helloWebViewClient.shouldOverrideUrlLoading(mWebView,websiteurl);
+
+                PackageManager pm = getActivity().getPackageManager();
+                boolean chromeisinstalled = isPackageInstalled("com.android.chrome",pm);
+
+                if(chromeisinstalled == false){
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://reg.gst.gov.in/registration/"));
+                    startActivity(intent);
+
+
+
+                }
+                else{
+
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://reg.gst.gov.in/registration/"));
+                    intent.setPackage("com.android.chrome");  // package of SafeBrowser App
+                    startActivity(intent);
+
+
+
+
+
+                }
+
+
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_LONG).show();
+
 
             }
         });
@@ -64,15 +101,123 @@ public class Applyforgst extends Fragment {
             @Override
             public void onClick(View view) {
 
-                websiteurl ="https://services.gst.gov.in/services/login";
-                HelloWebViewClient helloWebViewClient = new HelloWebViewClient();
-                helloWebViewClient.shouldOverrideUrlLoading(mWebView,websiteurl);
+                PackageManager pm = getActivity().getPackageManager();
+                boolean chromeisinstalled = isPackageInstalled("com.android.chrome",pm);
+
+                if(chromeisinstalled == false){
+
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://services.gst.gov.in/services/login"));
+                    startActivity(intent);
+
+
+
+                }
+                else{
+
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://services.gst.gov.in/services/login"));
+                    intent.setPackage("com.android.chrome");  // package of SafeBrowser App
+                    startActivity(intent);
+                }
+
+
+
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_LONG).show();
+
+
 
 
             }
         });
 
 
+
+
+
+        gstquicklinks = (Button) applyforgstview.findViewById(R.id.button_gstregisterquicklinks);
+        gstquicklinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                PackageManager pm = getActivity().getPackageManager();
+                boolean chromeisinstalled = isPackageInstalled("com.android.chrome",pm);
+
+                if(chromeisinstalled == false){
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://services.gst.gov.in/services/quicklinks/registration"));
+                    startActivity(intent);
+
+
+
+                }
+                else{
+
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://services.gst.gov.in/services/quicklinks/registration"));
+                    intent.setPackage("com.android.chrome");  // package of SafeBrowser App
+                    startActivity(intent);
+
+
+
+
+
+                }
+
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+
+
+
+        gstpayments = (Button) applyforgstview.findViewById(R.id.button_Payments);
+        gstpayments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                PackageManager pm = getActivity().getPackageManager();
+                boolean chromeisinstalled = isPackageInstalled("com.android.chrome",pm);
+
+                if(chromeisinstalled == false){
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://services.gst.gov.in/services/quicklinks/payments"));
+                    startActivity(intent);
+
+
+
+                }
+                else{
+
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://services.gst.gov.in/services/quicklinks/payments"));
+                    intent.setPackage("com.android.chrome");  // package of SafeBrowser App
+                    startActivity(intent);
+
+
+
+
+
+                }
+
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity().getBaseContext(),"Transferred to Browser due to security reasons!! ",Toast.LENGTH_LONG).show();
+
+
+            }
+        });
 
 
 
@@ -135,6 +280,17 @@ public class Applyforgst extends Fragment {
     }
 
 
+    private boolean isPackageInstalled(String packagename, PackageManager packageManager) {
+        try {
+            packageManager.getPackageInfo(packagename, 0);          //used for finding chrome browser
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+
+
 
 
     private class HelloWebViewClient extends WebViewClient {
@@ -172,13 +328,17 @@ public class Applyforgst extends Fragment {
 
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-            handler.proceed(); // Ignore SSL certificate errors
+
+            //controlled by diverting to web browser
+
+
+
+
+
         }
 
 
-}
 
 
-
-
+    }
 }
