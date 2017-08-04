@@ -59,7 +59,7 @@ public class gstnews extends Fragment {
         }
         else
         {
-            mWebView.loadUrl("https://www.google.co.in/search?q=gstnewslatest&source=lnms#q=gstnews&tbm=nws");
+            mWebView.loadUrl("https://www.google.co.in/search?q=gst%20news%20latest&source=lnms#q=gst%20news%20latest&tbm=nws");
             Toast.makeText(getActivity().getBaseContext(),"Please wait...",Toast.LENGTH_LONG).show();
             counter = 0;
             mWebView.setWebViewClient((new HelloWebViewClient()));

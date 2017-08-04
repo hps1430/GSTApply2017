@@ -50,7 +50,10 @@ public class whatIsGst extends Fragment{
         cookieManager.setAcceptCookie(true);
 
 
-        Toast.makeText(getActivity().getBaseContext(),"Loading...",Toast.LENGTH_LONG).show();
+
+
+
+      //  Toast.makeText(getActivity().getBaseContext(),"Loading...",Toast.LENGTH_LONG).show();
 
 
         if (!DetectConnection.checkInternetConnection(getActivity().getBaseContext())) {
@@ -60,7 +63,7 @@ public class whatIsGst extends Fragment{
         else
             {
                 mWebView.loadUrl("https://cleartax.in/s/gst-law-goods-and-services-tax/#what-is-gst");
-                Toast.makeText(getActivity().getBaseContext(),"Please wait...",Toast.LENGTH_LONG).show();
+      //          Toast.makeText(getActivity().getBaseContext(),"Please wait...",Toast.LENGTH_LONG).show();
                 counter = 0;
                 mWebView.setWebViewClient((new HelloWebViewClient()));
             }
